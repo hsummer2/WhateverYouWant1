@@ -79,9 +79,9 @@ public class HealthModifier : MonoBehaviour
             return true;
 
 
-        /*else if (_applyToTarget == DamageTarget.Enemies &&
+        else if (_applyToTarget == DamageTarget.Enemies &&
                  possibleTarget.GetComponent<AIBrain>())
-            return true;*/
+            return true;
 
 
         // not a valid target
