@@ -74,6 +74,7 @@ public class GameSessionManager : MonoBehaviour
             if (rb)
                 rb.velocity = Vector3.zero;
 
+
             Debug.Log("Player lives remaining: " + _playerLives);
         }
     }

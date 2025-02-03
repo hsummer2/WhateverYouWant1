@@ -23,6 +23,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("Additional gravitation pull.")]
     private float _extraGravity = 40;
 
+    [SerializeField, Tooltip("Are we on the ground?")]
+    private bool _isGrounded = false;
+
+    [SerializeField, Tooltip("The player's main collision shape.")]
+    Collider _myCollider = null;
+
     //public bool _canReceiveInput = true;
 
     [SerializeField, Tooltip("The bullet projectile to fire.")]
@@ -35,6 +41,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
+        _myCollider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -89,7 +96,8 @@ public class PlayerController : MonoBehaviour
         }
 
         // does the player want to jump?
-        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(curSpeed.y) < 1)
+        //if ( Input.GetKeyDown(KeyCode.Space) && Mathf.Abs( curSpeed.y ) < 1 )
+        if (Input.GetKeyDown(KeyCode.Space) && CalcIsGrounded())
             curSpeed.y += _jumpVelocity;
         else
             curSpeed.y -= _extraGravity * Time.deltaTime;
@@ -126,6 +134,23 @@ public class PlayerController : MonoBehaviour
             PickUpItem collisionItem = collider.gameObject.GetComponent<PickUpItem>();
             collisionItem.onPickedUp(this.gameObject);
         }
+    }
+
+    /// <summary>
+    /// Check below the player object. 
+    /// If they're standing on a solid object, they can Jump 
+    /// and perform other actions not available in mid-air.
+    /// </summary>
+    bool CalcIsGrounded()
+    {
+        float offset = 0.1f;
+
+        Vector3 pos = _myCollider.bounds.center;
+        pos.y = _myCollider.bounds.min.y - offset;
+
+        _isGrounded = Physics.CheckSphere(pos, offset);
+
+        return _isGrounded;
     }
 
 }
