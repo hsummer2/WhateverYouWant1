@@ -61,7 +61,11 @@ public class HealthManager : MonoBehaviour
             if (GetComponent<PlayerController>())
                 GameSessionManager.Instance.onPlayerDeath(gameObject);
             else
+            {
+                VFXHandler vfx = GetComponent<VFXHandler>();
+                vfx?.SpawnExplosion();
                 GameObject.Destroy(gameObject);
+            }
         }
 
 
