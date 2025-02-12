@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         // check to see if any of the keyboard arrows are being pressed
         // if so, adjust the speed of the player
         // also store the facing based on the keys being pressed
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             _moveInput = true;
             curSpeed.x += (_movementAcceleration * Time.deltaTime);
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
             _curFacing.z = 0;
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             _moveInput = true;
             curSpeed.x -= (_movementAcceleration * Time.deltaTime);
@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
             _curFacing.z = 0;
         }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
             _moveInput = true;
             curSpeed.z += (_movementAcceleration * Time.deltaTime);
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
             _curFacing.x = 0;
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S))
         {
             _moveInput = true;
             curSpeed.z -= (_movementAcceleration * Time.deltaTime);
@@ -105,13 +105,13 @@ public class PlayerController : MonoBehaviour
         }
 
         // if both left and right keys are depressed or pressed, apply friction
-        if (Input.GetKey(KeyCode.LeftArrow) == Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.A) == Input.GetKey(KeyCode.D))
         {
             curSpeed.x -= (_movementFriction * curSpeed.x);
         }
 
         // if both up and down keys are depressed or pressed, apply friction
-        if (Input.GetKey(KeyCode.UpArrow) == Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.W) == Input.GetKey(KeyCode.S))
         {
             curSpeed.z -= (_movementFriction * curSpeed.z);
         }
@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
             curSpeed.y -= _extraGravity * Time.deltaTime;
 
         // fire the weapon?
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             if (_weaponEquipped)
             {

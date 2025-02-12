@@ -196,7 +196,8 @@ Transform:
   m_LocalPosition: {x: 0.43, y: -0.24, z: 0.17}
   m_LocalScale: {x: 0.3, y: 0.35, z: 0.24}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6798145145743782073}
   m_Father: {fileID: 1252478208407835654}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 37, y: -22, z: -24}
@@ -310,7 +311,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252478208407835658}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -354,7 +355,7 @@ SphereCollider:
   m_GameObject: {fileID: 1252478208407835658}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.4
   m_Center: {x: 0, y: 0.5, z: 0}
@@ -391,7 +392,7 @@ MonoBehaviour:
   _movementFriction: 0.05
   _jumpVelocity: 20
   _extraGravity: 40
-  _isGrounded: 0
+  _isGrounded: 1
   _myCollider: {fileID: 0}
   _weaponEquipped: {fileID: 0}
   _bulletToSpawn: {fileID: 2177515664620137457, guid: 571ec0e202666e04f962745901bd1e2e, type: 3}
@@ -422,7 +423,7 @@ Animator:
   m_GameObject: {fileID: 1252478208407835658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ff03f915edb5ab141b0b80b1f62cb203, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6df09747009248849b135f625c35d790, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -517,6 +518,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7131907463456353481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6798145145743782073}
+  m_Layer: 0
+  m_Name: WEAPON_LOC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6798145145743782073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7131907463456353481}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1252478208137982378}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8253758349389868610
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +978,6 @@ GameObject:
   - component: {fileID: 8253758350872849355}
   - component: {fileID: 8253758350872849350}
   - component: {fileID: 8253758350872849353}
-  - component: {fileID: 8253758350872849352}
   m_Layer: 0
   m_Name: Glare_L
   m_TagString: Untagged
@@ -1019,19 +1050,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8253758350872849352
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8253758350872849354}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8253758350879367584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,7 +1061,6 @@ GameObject:
   - component: {fileID: 8253758350879367585}
   - component: {fileID: 8253758350879367644}
   - component: {fileID: 8253758350879367647}
-  - component: {fileID: 8253758350879367646}
   m_Layer: 0
   m_Name: Glare_R
   m_TagString: Untagged
@@ -1116,19 +1133,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8253758350879367646
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8253758350879367584}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8253758351232232112
 GameObject:
   m_ObjectHideFlags: 0
