@@ -12,6 +12,7 @@ public class GameSessionManager : MonoBehaviour
     private Transform _respawnPostion;
 
     static public GameSessionManager Instance;
+    public bool cutSceneMusicActive;
 
     //string levelMap01;
 
@@ -73,7 +74,6 @@ public class GameSessionManager : MonoBehaviour
             Rigidbody rb = player.transform.GetComponent<Rigidbody>();
             if (rb)
                 rb.velocity = Vector3.zero;
-
 
             Debug.Log("Player lives remaining: " + _playerLives);
         }

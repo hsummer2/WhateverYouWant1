@@ -32,6 +32,7 @@ public class PickUpItem : MonoBehaviour
     public void onPickedUp(GameObject whoPickedUp)
     {
 
+ AudioManager.instance.PlaySFX(0);
 
         // NEW CODE
         if (GetComponent<Weapon>() != null)
